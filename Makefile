@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/20 14:28:50 by amulin            #+#    #+#              #
-#    Updated: 2015/12/20 15:16:41 by amulin           ###   ########.fr        #
+#    Updated: 2015/12/20 18:07:44 by tle-meur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBINCLUDIR = libft/includes/
 
 SRCDIR = sources/
 
-SRCS = main.c parsing.c control.c error.c
+SRCS = main.c parsing.c control.c error.c prints.c
 
 SOURCES = $(addprefix $(SRCDIR), $(SRCS))
 

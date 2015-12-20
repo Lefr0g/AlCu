@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:14:23 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 18:02:46 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/20 18:10:31 by tle-meur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,20 @@ int				alcu_parse_file(char *filename);
 /*
 ** control.c
 */
-int				alcu_run_game(void);
+int				alcu_run_game(t_env *e);
 void			alcu_exit_game(void);
 
 /*
 ** error.c
 */
 int				alcu_print_error(char *str);
+
+/*
+** prints.c
+*/
+void			print_map(t_env *e);
+void			print_last_action(int player, int action);
+void			print_your_turn(int player, int max);
+
 
 #endif

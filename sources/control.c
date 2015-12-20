@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:26:59 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 17:33:33 by tle-meur         ###   ########.fr       */
+/*   Updated: 2015/12/20 18:10:40 by tle-meur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	alcu_turn(t_env *e, int player)
 
 	line = NULL;
 	max = FT_MIN(3, e->table[e->id_line]);
-	print_your_turn(e, player, max);
+	print_your_turn(player, max);
 	if (player == FT_IA)
 	{
 		action = compute_best(e, max);
@@ -49,7 +49,7 @@ static int	alcu_turn(t_env *e, int player)
 	else if (!(action = 0))
 		while (action < 0 || action > max)
 		{
-			if ((action = get_nex_line(0, &line)) == -1)
+			if ((action = get_next_line(0, &line)) == -1)
 			{
 				ft_memdel((void **)(&line));
 				return (-1);
@@ -68,7 +68,7 @@ int			alcu_run_game(t_env *e)
 
 	first_turn = 1;
 	player = FT_USER;
-	while (e->table[size - 1])
+	while (e->table[e->size - 1])
 	{
 		print_map(e);
 		if (!first_turn)
@@ -78,7 +78,7 @@ int			alcu_run_game(t_env *e)
 		action = alcu_turn(e, player);
 		if (action == -1)
 			return (-1);
-		e->table[e->id_line] -= acion;
+		e->table[e->id_line] -= action;
 		if (!e->table[e->id_line])
 			e->id_line++;
 		player = (player + 1) % 2;
