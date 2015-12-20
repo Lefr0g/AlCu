@@ -6,14 +6,17 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:14:23 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 16:11:45 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/20 17:07:49 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ALUM1_H
 # define ALUM1_H
 
+# define GNL_LINE_SIZE 1000
+
 # include "libft.h"
+# include <fcntl.h>
 
 typedef	struct	s_env
 {
@@ -28,6 +31,7 @@ typedef	struct	s_env
 int		alcu_readmap_stdin(void);
 int		alcu_readmap_file(char *filename);
 int		alcu_parse_file(char *filename);
+int		alcu_check_line(char *line, int minval, int maxval);
 
 /*
 ** control.c
