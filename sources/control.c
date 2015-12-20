@@ -6,29 +6,25 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:26:59 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 18:34:02 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/20 19:09:15 by tle-meur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "alum1.h"
 
-#define FT_IA			0
-#define FT_USER			1
-#define FT_MIN( x, y )	( ( (x) > (y) ) ? (y) : (x) )
-
 static int	compute_best(t_env *e, int max)
 {
 	int	rest;
-	int	ret;
+	int	want_line;
 
-	rest = e->table[e->id_line];
-	ret = rest % 4;
-	if (ret != 1)
-		return ((!ret) ? FT_MIN(3, max) : FT_MIN(ret - 1, max));
+	want_line = 0;
+	rest = e->table[e->id_line] % 4;
+	if (!want_line && rest != 1)
+		return ((!rest) ? FT_MIN(3, max) : FT_MIN(rest - 1, max));
+	else if (want_line && rest)
+		return (rest);
 	else
-	{
 		return (FT_MIN(1, max));
-	}
 }
 
 static int	alcu_turn(t_env *e, int player)
@@ -80,7 +76,7 @@ int			alcu_run_game(t_env *e)
 			return (-1);
 		e->table[e->id_line] -= action;
 		if (!e->table[e->id_line])
-			e->id_line++;
+			e->id_line--;
 		player = (player + 1) % 2;
 	}
 	return (player);

@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:14:23 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 19:05:36 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/20 19:11:03 by tle-meur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define FT_IA			0
 # define FT_USER		1
 # define FT_MIN( x, y )	( ( (x) > (y) ) ? (y) : (x) )
+# define FT_MAX( x, y )	( ( (x) < (y) ) ? (y) : (x) )
 
 typedef	struct	s_env
 {

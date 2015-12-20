@@ -6,7 +6,7 @@
 /*   By: tle-meur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 16:35:45 by tle-meur          #+#    #+#             */
-/*   Updated: 2015/12/20 18:10:21 by tle-meur         ###   ########.fr       */
+/*   Updated: 2015/12/20 19:07:27 by tle-meur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,31 @@
 
 void	print_map(t_env *e)
 {
-	(void)e;
+	int		i;
+	int		max;
+	int		size;
+	char	*line;
+
+	i = -1;
+	max = 0;
+	line = NULL;
+	while (++i < e->size)
+		max = FT_MAX(max, e->table_ref[i]);
+	if (!(line = ft_strnew(max + 1)))
+		return (ft_putstr("Problem during the map printing."));
+	i = -1;
+	while (++i < e->size)
+	{
+		size = (max - e->table_ref[i]) / 2;
+		ft_memset(line, ' ', size);
+		ft_memset(line + size, '|', e->table[i]);
+		size += e->table[i];
+		ft_memset(line + size, '.', e->table_ref[i] - e->table[i]);
+		size += (e->table_ref[i] - e->table[i]);
+		line[size++] = '\n';
+		write(1, line, size);
+	}
+	ft_memdel((void **)line);
 }
 
 void	print_last_action(int player, int action)
