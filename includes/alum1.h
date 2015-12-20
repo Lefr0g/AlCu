@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:14:23 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 15:14:25 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/20 16:11:45 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 # define ALUM1_H
 
 # include "libft.h"
+
+typedef	struct	s_env
+{
+	int	*table;
+	int	size;
+	int	id_line;
+}				t_env;
 
 /*
 ** parsing.c
