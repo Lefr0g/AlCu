@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:13:24 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 16:11:48 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/20 17:26:08 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_env	e;
 
+	(void)e;
 	if (argc < 2)
 	{
 		alcu_readmap_stdin();
