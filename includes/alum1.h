@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:14:23 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 15:01:00 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/20 15:14:25 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 
 # include "libft.h"
 
-
 /*
 ** parsing.c
 */
-int		readmap_stdin(void);
-int		readmap_file(char *filename);
+int		alcu_readmap_stdin(void);
+int		alcu_readmap_file(char *filename);
+int		alcu_parse_file(char *filename);
 
 /*
 ** control.c
 */
-int		run_game(void);
-void	exit_game(void);
+int		alcu_run_game(void);
+void	alcu_exit_game(void);
 
 /*
 ** error.c
 */
-int		print_error(char *str);
+int		alcu_print_error(char *str);
 
 #endif

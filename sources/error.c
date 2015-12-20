@@ -6,13 +6,13 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:24:39 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 15:02:47 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/20 15:15:02 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "alum1.h"
 
-int	print_error(char *str)
+int	alcu_print_error(char *str)
 {
 	if (str)
 	{

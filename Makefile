@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/20 14:28:50 by amulin            #+#    #+#              #
-#    Updated: 2015/12/20 14:54:09 by amulin           ###   ########.fr        #
+#    Updated: 2015/12/20 15:16:41 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ LIB = libft/libft.a
 
 all: $(NAME)
 
-$(NAME): $(LIB)
+$(NAME): $(LIB) $(SOURCES)
 	$(CC) $(FLAGS) $(SOURCES) -I $(INCLUDIR) -I $(LIBINCLUDIR) -o $(NAME) $(LIBFLAGS)
 
 $(LIB) :
