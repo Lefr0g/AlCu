@@ -6,26 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:13:24 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 19:20:16 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/20 20:12:24 by tle-meur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "alum1.h"
-
-/*
-void	tmp_print_map(int *map, int size)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		ft_putnbr(map[i]);
-		ft_putchar('\n');
-		i++;
-	}
-}
-*/
 
 int	main(int argc, char **argv)
 {
@@ -45,7 +30,8 @@ int	main(int argc, char **argv)
 		alcu_print_error(NULL);
 		alcu_exit_game();
 	}
-//	tmp_print_map(e.table, e.size);
 	alcu_run_game(&e);
+	ft_memdel((void **)(&e.table));
+	ft_memdel((void **)(&e.table_ref));
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:22:14 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 19:16:28 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/20 19:57:52 by tle-meur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,9 @@ int	alcu_check_line(char *line, int minval, int maxval)
 	}
 	input = ft_atoi(line);
 	if (input < minval || input > maxval)
+	{
 		return (-1);
+	}
 	else
 		return (input);
 }

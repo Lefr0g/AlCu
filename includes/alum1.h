@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:14:23 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 19:32:46 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/20 20:04:40 by tle-meur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int				alcu_print_error(char *str);
 ** prints.c
 */
 void			print_map(t_env *e);
+void			print_retry(int max);
+void			print_result(int player, int nb_turns);
 void			print_last_action(int player, int action);
 void			print_your_turn(int player, int max);
 
