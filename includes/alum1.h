@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:14:23 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 19:11:03 by tle-meur         ###   ########.fr       */
+/*   Updated: 2015/12/20 19:32:46 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@
 
 # include "libft.h"
 # include <fcntl.h>
+
+# define ANSI_COLOR_RED "\033[31m"
+# define ANSI_COLOR_GREEN "\033[32m"
+# define ANSI_COLOR_YELLOW "\033[33m"
+# define ANSI_COLOR_BLUE "\033[34m"
+# define ANSI_COLOR_MAGENTA "\033[35m"
+# define ANSI_COLOR_CYAN "\033[36m"
+# define ANSI_UNDERLINED "\033[4m"
+# define ANSI_RESET "\033[0m"
+
 
 # define FT_IA			0
 # define FT_USER		1
