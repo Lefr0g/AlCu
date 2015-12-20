@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:26:59 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 18:10:40 by tle-meur         ###   ########.fr       */
+/*   Updated: 2015/12/20 18:34:02 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	alcu_turn(t_env *e, int player)
 		ft_putchar('\n');
 	}
 	else if (!(action = 0))
-		while (action < 0 || action > max)
+		while (action <= 0 || action > max)
 		{
 			if ((action = get_next_line(0, &line)) == -1)
 			{

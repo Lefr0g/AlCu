@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:22:14 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 18:00:23 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/20 18:37:37 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ int	alcu_readmap_stdin(void)
 	return (0);
 }
 
-int	alcu_readmap_file(char *filename)
+int	alcu_readmap_file(t_env *e, char *filename)
 {
 	if (filename)
 	{
 		ft_putstr("Reading from ");
 		ft_putendl(filename);
-		alcu_parse_file(filename);
+		alcu_parse_file(e, filename);
 		return (0);
 	}
 	else
@@ -49,7 +49,7 @@ int	alcu_readmap_file(char *filename)
 	return (1);
 }
 
-int	alcu_parse_file(char *filename)
+int	alcu_parse_file(t_env *e, char *filename)
 {
 	int		fd;
 	char	*line;
@@ -75,14 +75,34 @@ int	alcu_parse_file(char *filename)
 			exit(1);
 		}
 		else
-		{
 			ft_lstadd(&list, ft_lstnew(&value, 4));
-//			printf("Element added, list is at %p\n", list);
-//			printf("Value copied to list, content is %d\n", *(int*)(list->content));
-		}
 	}
-	lstprint(list);
+	alcu_load_table(e, list);
+	return (0);
+}
 
+int	alcu_load_table(t_env *e, t_list *list)
+{
+	int		i;
+	t_list	*lstptr;
+
+	i = 0;
+	lstptr = list;
+	while (lstptr)
+	{
+		lstptr = lstptr->next;
+		i++;
+	}
+	e->size = i;
+	e->table = (int*)malloc(sizeof(int) * e->size);
+	lstptr = list;
+	i--;
+	while (lstptr)
+	{
+		e->table[i] = *(int*)lstptr->content;
+		lstptr = lstptr->next;
+		i--;
+	}
 	return (0);
 }
 
