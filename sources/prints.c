@@ -6,7 +6,7 @@
 /*   By: tle-meur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 16:35:45 by tle-meur          #+#    #+#             */
-/*   Updated: 2015/12/20 19:07:27 by tle-meur         ###   ########.fr       */
+/*   Updated: 2015/12/20 19:18:38 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	print_map(t_env *e)
 		line[size++] = '\n';
 		write(1, line, size);
 	}
-	ft_memdel((void **)line);
+	ft_memdel((void **)&line);
 }
 
 void	print_last_action(int player, int action)
