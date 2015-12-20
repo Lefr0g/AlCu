@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:22:14 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 15:17:35 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/20 15:27:37 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,25 @@ int	alcu_readmap_file(char *filename)
 
 int	alcu_parse_file(char *filename)
 {
-	(void)filename;
+	int	fd;
+	int	nblines;
+
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+	{
+		alcu_print_error(NULL);
+		return (1);
+	}
+	nblines = alcu_count_lines(fd);
 	return (0);
+}
+
+int	alcu_count_lines(int fd)
+{
+	int	nblines;
+
+	nblines = 0;
+	while ()
+
+	return (nblines);
 }
