@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:14:23 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 18:23:24 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/20 19:05:36 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ typedef	struct	s_env
 ** parsing.c
 */
 int				alcu_check_line(char *line, int minval, int maxval);
-int				alcu_readmap_stdin(void);
-int				alcu_readmap_file(t_env *e, char *filename);
-int				alcu_parse_file(t_env *e, char *filename);
+int				alcu_readmap(t_env *e, char *filename);
+int				alcu_parse_file(t_env *e, int fd, char *line);
 int				alcu_load_table(t_env *e, t_list *list);
+void			alcu_del_elem(void *content, size_t size);
 
 /*
 ** control.c

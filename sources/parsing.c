@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:22:14 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/20 18:37:37 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/20 19:06:52 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <strings.h>
 
+/*
 void	lstprint(t_list	*list)
 {
 	int	i;
@@ -28,50 +29,51 @@ void	lstprint(t_list	*list)
 		i++;
 	}
 }
+*/
 
-int	alcu_readmap_stdin(void)
-{
-	ft_putendl("Reading from stdin");
-	return (0);
-}
-
-int	alcu_readmap_file(t_env *e, char *filename)
-{
-	if (filename)
-	{
-		ft_putstr("Reading from ");
-		ft_putendl(filename);
-		alcu_parse_file(e, filename);
-		return (0);
-	}
-	else
-		alcu_print_error("NULL file name");
-	return (1);
-}
-
-int	alcu_parse_file(t_env *e, char *filename)
+int	alcu_readmap(t_env *e, char *filename)
 {
 	int		fd;
 	char	*line;
+	
+	line = ft_strnew(GNL_LINE_SIZE);
+	if (filename)
+	{	
+		fd = open(filename, O_RDONLY);
+		if (fd == -1)
+		{
+			alcu_print_error(NULL);
+			return (1);
+		}
+		ft_putstr("Reading from ");
+		ft_putendl(filename);
+		alcu_parse_file(e, fd, line);
+		close(fd);
+	}
+	else
+	{
+		ft_putendl("Reading from stdin");
+		alcu_parse_file(e, 0, line);
+	}
+	return (0);
+}
+
+int	alcu_parse_file(t_env *e, int fd, char *line)
+{
 	int		value;
 	t_list	*list;
 
 	value = 0;
 	list = NULL;
-	line = ft_strnew(GNL_LINE_SIZE);
-	
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-	{
-		alcu_print_error(NULL);
-		return (1);
-	}
 	while (get_next_line(fd, &line) == 1)
 	{
 		if ((value = alcu_check_line(line, 1, 10000)) == -1)
 		{
 			alcu_print_error(NULL);
-			// Free all memory
+			ft_lstdel(&list, &alcu_del_elem);
+			list = NULL;
+			ft_strdel(&line);
+			line = NULL;
 			exit(1);
 		}
 		else
@@ -125,3 +127,16 @@ int	alcu_check_line(char *line, int minval, int maxval)
 		return (input);
 }
 
+void	alcu_del_elem(void *content, size_t size)
+{
+	size_t			i;
+	unsigned char	*c;
+
+	i = 0;
+	c = (unsigned char*)content;
+	while (i < size)
+	{
+		c[i] = '\0';
+		i++;
+	}
+}
