@@ -6,7 +6,7 @@
 /*   By: tle-meur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 16:35:45 by tle-meur          #+#    #+#             */
-/*   Updated: 2015/12/20 20:06:55 by tle-meur         ###   ########.fr       */
+/*   Updated: 2015/12/21 13:32:05 by tle-meur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	print_your_turn(int player, int max)
 		ft_putstr(" matches) : ");
 }
 
-void	print_result(int player, int nb_turns)
+int		print_result(int player, int nb_turns)
 {
 	if (player == FT_IA)
 		ft_putstr("CONGRATULATIONS !!! YOU ARE A WINNER !!!\n YOU WON IN ");
@@ -75,6 +75,7 @@ void	print_result(int player, int nb_turns)
 		ft_putstr("YOU'RE A JERK !!! YOU ARE A LOOSER !!!\n YOU LOSE IN ");
 	ft_putnbr(nb_turns / 2);
 	ft_putendl(" TURNS !!!");
+	return (player);
 }
 
 void	print_retry(int max)
@@ -86,4 +87,3 @@ void	print_retry(int max)
 	else
 		ft_putstr(" matches : ");
 }
-
