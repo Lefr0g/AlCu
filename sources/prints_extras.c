@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/21 17:50:24 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/21 17:51:26 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/21 17:54:33 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	print_long_line(t_env *e, int i)
 }
 
 void	print_small_line(t_env *e, int max, int i)
-{	
+{
 	int		size;
 	char	*line;
 

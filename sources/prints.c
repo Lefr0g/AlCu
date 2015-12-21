@@ -6,7 +6,7 @@
 /*   By: tle-meur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 16:35:45 by tle-meur          #+#    #+#             */
-/*   Updated: 2015/12/21 17:51:41 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/21 17:54:13 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void	print_map(t_env *e)
 	i = -1;
 	max = 0;
 	max = MAX_MATCHES_PER_LINE;
-//	while (++i < e->size)
-//		max = FT_MAX(max, e->table_ref[i]);
 	i = -1;
 	while (++i < e->size)
 	{
