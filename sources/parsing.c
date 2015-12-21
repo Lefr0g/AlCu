@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:22:14 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/21 15:30:29 by tle-meur         ###   ########.fr       */
+/*   Updated: 2015/12/21 15:51:30 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int			alcu_check_line(char *line, int minval, int maxval)
 	int	input;
 
 	i = 0;
+	if (!*line)
+		return (-1);
 	while (line[i])
 	{
 		if (!ft_isdigit(line[i]) && line[i] != '\n')
@@ -94,15 +96,15 @@ static int	alcu_parse_file(t_env *e, int fd, char *line)
 		}
 		else
 			ft_lstadd(&list, ft_lstnew(&value, 4));
-	if (alcu_load_table(e, list))
+	if (!list || alcu_load_table(e, list))
 	{
 		ft_memdel((void**)&line);
-		return (1);
+		return (alcu_print_error(NULL));
 	}
 	if (!(e->table_ref = (int*)malloc(sizeof(int) * e->size)))
 	{
 		ft_memdel((void**)&line);
-		return (1);
+		return (alcu_print_error(NULL));
 	}
 	ft_strdel(&line);
 	return (ft_memcpy(e->table_ref, e->table, e->size * sizeof(int)) && 0);

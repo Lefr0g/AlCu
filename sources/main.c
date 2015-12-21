@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:13:24 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/21 15:31:15 by tle-meur         ###   ########.fr       */
+/*   Updated: 2015/12/21 15:47:33 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ int		main(int argc, char **argv)
 		if (!alcu_readmap(&e, NULL) && e.size)
 			alcu_run_game(&e);
 		else
-			return ((!e.size) ? alcu_print_error(NULL) : 1);
+			return (1);
 	}
 	else if (argc == 2)
 	{
-		if (!alcu_readmap(&e, argv[1]) && e.size)
+		if (!alcu_readmap(&e, argv[1]))
 			alcu_run_game(&e);
 		else
-			return ((!e.size) ? alcu_print_error(NULL) : 1);
+			return (1);
 	}
 	else
 	{
