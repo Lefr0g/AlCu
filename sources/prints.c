@@ -6,7 +6,7 @@
 /*   By: tle-meur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 16:35:45 by tle-meur          #+#    #+#             */
-/*   Updated: 2015/12/21 13:32:05 by tle-meur         ###   ########.fr       */
+/*   Updated: 2015/12/21 16:26:50 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,21 @@ void	print_map(t_env *e)
 void	print_last_action(int player, int action)
 {
 	if (player == FT_USER)
+	{
+		ft_putstr(ANSI_UNDERLINED);
 		ft_putstr("You took ");
+	}
 	else
+	{
+		ft_putstr(ANSI_COLOR_CYAN);
 		ft_putstr("The IA tooks ");
+	}
 	ft_putnbr(action);
 	if (action == 1)
 		ft_putendl(" match.");
 	else
 		ft_putendl(" matches.");
+	ft_putstr(ANSI_RESET);
 }
 
 void	print_your_turn(int player, int max)
@@ -70,20 +77,29 @@ void	print_your_turn(int player, int max)
 int		print_result(int player, int nb_turns)
 {
 	if (player == FT_IA)
+	{
+		ft_putstr(ANSI_COLOR_GREEN);
 		ft_putstr("CONGRATULATIONS !!! YOU ARE A WINNER !!!\n YOU WON IN ");
+	}
 	else
+	{
+		ft_putstr(ANSI_COLOR_RED);
 		ft_putstr("YOU'RE A JERK !!! YOU ARE A LOOSER !!!\n YOU LOSE IN ");
+	}
 	ft_putnbr(nb_turns / 2);
 	ft_putendl(" TURNS !!!");
+	ft_putendl(ANSI_RESET);
 	return (player);
 }
 
 void	print_retry(int max)
 {
+	ft_putstr(ANSI_COLOR_YELLOW);
 	ft_putstr("Please choose a value between 1 and ");
 	ft_putnbr(max);
 	if (max == 1)
 		ft_putstr(" match : ");
 	else
 		ft_putstr(" matches : ");
+	ft_putstr(ANSI_RESET);
 }
