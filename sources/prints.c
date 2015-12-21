@@ -6,7 +6,7 @@
 /*   By: tle-meur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 16:35:45 by tle-meur          #+#    #+#             */
-/*   Updated: 2015/12/21 17:54:13 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/21 17:59:21 by tle-meur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	print_map(t_env *e)
 	i = -1;
 	while (++i < e->size)
 	{
-		if (e->table[i] <= MAX_MATCHES_PER_LINE)
+		if (e->table_ref[i] <= MAX_MATCHES_PER_LINE)
 			print_small_line(e, max, i);
 		else
 			print_long_line(e, i);
