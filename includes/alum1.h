@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:14:23 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/21 14:10:07 by tle-meur         ###   ########.fr       */
+/*   Updated: 2015/12/21 17:52:27 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ALUM1_H
 
 # define GNL_LINE_SIZE 1000
+# define MAX_MATCHES_PER_LINE 80
 
 # include "libft.h"
 # include <fcntl.h>
@@ -65,5 +66,11 @@ void			print_retry(int max);
 int				print_result(int player, int nb_turns);
 void			print_last_action(int player, int action);
 void			print_your_turn(int player, int max);
+
+/*
+** prints_extras.c
+*/
+void			print_long_line(t_env *e, int i);
+void			print_small_line(t_env *e, int max, int i);
 
 #endif

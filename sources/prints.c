@@ -6,7 +6,7 @@
 /*   By: tle-meur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 16:35:45 by tle-meur          #+#    #+#             */
-/*   Updated: 2015/12/21 16:26:50 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/21 17:51:41 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,20 @@ void	print_map(t_env *e)
 {
 	int		i;
 	int		max;
-	int		size;
-	char	*line;
 
 	i = -1;
 	max = 0;
-	line = NULL;
-	while (++i < e->size)
-		max = FT_MAX(max, e->table_ref[i]);
-	if (!(line = ft_strnew(max + 1)))
-		return (ft_putstr("Problem during the map printing."));
+	max = MAX_MATCHES_PER_LINE;
+//	while (++i < e->size)
+//		max = FT_MAX(max, e->table_ref[i]);
 	i = -1;
 	while (++i < e->size)
 	{
-		size = (max - e->table_ref[i]) / 2;
-		ft_memset(line, ' ', size);
-		ft_memset(line + size, '|', e->table[i]);
-		size += e->table[i];
-		ft_memset(line + size, '.', e->table_ref[i] - e->table[i]);
-		size += (e->table_ref[i] - e->table[i]);
-		line[size++] = '\n';
-		write(1, line, size);
+		if (e->table[i] <= MAX_MATCHES_PER_LINE)
+			print_small_line(e, max, i);
+		else
+			print_long_line(e, i);
 	}
-	ft_memdel((void **)&line);
 }
 
 void	print_last_action(int player, int action)
