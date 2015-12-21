@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/20 14:28:50 by amulin            #+#    #+#              #
-#    Updated: 2015/12/21 15:33:31 by amulin           ###   ########.fr        #
+#    Updated: 2015/12/21 16:50:54 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,11 +43,10 @@ all: $(NAME)
 $(NAME): $(LIB) $(SOURCES)
 	$(CC) $(FLAGS) $(SOURCES) -I $(INCLUDIR) -I $(LIBINCLUDIR) -o $(NAME) $(LIBFLAGS)
 
-$(LIB) :
-	./git_submodules_init.sh
+$(LIB) : subinit
 	make -C libft/
 
-clean:
+clean: subinit
 	make -C libft/ clean
 	rm -f $(OBJECTS)
 
@@ -55,4 +54,7 @@ fclean: clean
 	make -C libft/ fclean
 	rm -f $(NAME)
 
-re: fclean all
+re: subinit fclean all
+
+subinit :
+	./git_submodules_init.sh
