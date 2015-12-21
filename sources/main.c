@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:13:24 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/21 15:16:02 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/21 15:31:15 by tle-meur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ int		alcu_print_error(char *str)
 	}
 	else
 		ft_putstr_fd("ERROR\n", 2);
-	return (0);
-
+	return (1);
 }
 
 int		main(int argc, char **argv)
@@ -39,22 +38,21 @@ int		main(int argc, char **argv)
 
 	if (argc < 2)
 	{
-		if (!alcu_readmap(&e, NULL))
+		if (!alcu_readmap(&e, NULL) && e.size)
 			alcu_run_game(&e);
 		else
-			return (1);
+			return ((!e.size) ? alcu_print_error(NULL) : 1);
 	}
 	else if (argc == 2)
 	{
-		if (!alcu_readmap(&e, argv[1]))
+		if (!alcu_readmap(&e, argv[1]) && e.size)
 			alcu_run_game(&e);
 		else
-			return (1);
+			return ((!e.size) ? alcu_print_error(NULL) : 1);
 	}
 	else
 	{
-		alcu_print_error(NULL);
-		return (1);
+		return (alcu_print_error(NULL));
 	}
 	del_env(&e);
 	return (0);

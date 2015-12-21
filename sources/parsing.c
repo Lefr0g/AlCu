@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:22:14 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/21 15:12:22 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/21 15:30:29 by tle-meur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ static void	alcu_del_elem(void *content, size_t size)
 	size_t			i;
 	unsigned char	*c;
 
+	if (!content)
+		return ;
 	i = 0;
 	c = (unsigned char*)content;
 	while (i < size)
@@ -74,6 +76,7 @@ static void	alcu_del_elem(void *content, size_t size)
 		c[i] = '\0';
 		i++;
 	}
+	free(content);
 }
 
 static int	alcu_parse_file(t_env *e, int fd, char *line)
@@ -85,10 +88,9 @@ static int	alcu_parse_file(t_env *e, int fd, char *line)
 	while (get_next_line(fd, &line) == 1)
 		if ((value = alcu_check_line(line, 1, 10000)) == -1)
 		{
-			alcu_print_error(NULL);
 			ft_lstdel(&list, &alcu_del_elem);
 			ft_memdel((void**)&line);
-			return (1);
+			return (alcu_print_error(NULL));
 		}
 		else
 			ft_lstadd(&list, ft_lstnew(&value, 4));
