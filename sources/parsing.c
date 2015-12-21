@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 14:22:14 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/21 14:15:37 by tle-meur         ###   ########.fr       */
+/*   Updated: 2015/12/21 15:12:22 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ static int	alcu_parse_file(t_env *e, int fd, char *line)
 		ft_memdel((void**)&line);
 		return (1);
 	}
+	ft_strdel(&line);
 	return (ft_memcpy(e->table_ref, e->table, e->size * sizeof(int)) && 0);
 }
 
