@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/20 14:28:50 by amulin            #+#    #+#              #
-#    Updated: 2015/12/21 14:11:38 by tle-meur         ###   ########.fr        #
+#    Updated: 2015/12/21 15:33:31 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ $(NAME): $(LIB) $(SOURCES)
 	$(CC) $(FLAGS) $(SOURCES) -I $(INCLUDIR) -I $(LIBINCLUDIR) -o $(NAME) $(LIBFLAGS)
 
 $(LIB) :
+	./git_submodules_init.sh
 	make -C libft/
 
 clean:
