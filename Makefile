@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/20 14:28:50 by amulin            #+#    #+#              #
-#    Updated: 2015/12/21 17:55:33 by amulin           ###   ########.fr        #
+#    Updated: 2015/12/21 18:51:56 by tle-meur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,12 +41,13 @@ LIB = libft/libft.a
 all: $(NAME)
 
 $(NAME): $(LIB) $(SOURCES)
-	$(CC) $(FLAGS) $(SOURCES) -I $(INCLUDIR) -I $(LIBINCLUDIR) -o $(NAME) $(LIBFLAGS)
+	$(CC) $(FLAGS) $(SOURCES) -I $(INCLUDIR) -I $(LIBINCLUDIR) \
+		-o $(NAME) $(LIBFLAGS)
 
-$(LIB) : subinit
+$(LIB) :
 	make -C libft/
 
-clean: subinit
+clean:
 	make -C libft/ clean
 	rm -f $(OBJECTS)
 
@@ -54,7 +55,4 @@ fclean: clean
 	make -C libft/ fclean
 	rm -f $(NAME)
 
-re: subinit fclean all
-
-subinit :
-	./git_submodules_init.sh
+re: fclean all
